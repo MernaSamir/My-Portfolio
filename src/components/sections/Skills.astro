@@ -1,0 +1,22 @@
+---
+import { SKILLS } from '../../data/profile';
+const lang = Astro.currentLocale === 'ar' ? 'ar' : 'en';
+const L = (o: Record<string, string>) => o[lang];
+---
+<section class="sec alt" id="skills" aria-labelledby="skillsT">
+  <div class="wrap">
+    <div class="sec-title reveal"><span class="kicker">{L(SKILLS.k)}</span><h2 id="skillsT">{L(SKILLS.t)}</h2><p>{L(SKILLS.p)}</p></div>
+    <div class="skill-grid">
+      {SKILLS.groups.map(g => (
+        <div class="card sk spot reveal">
+          <h3><span class="ico">{g.icon}</span><span>{L(g.t)}</span></h3>
+          <ul>
+            {g.items.map(([ic, label]) => (
+              <li><span>{ic && <img src={`https://cdn.jsdelivr.net/npm/simple-icons@11/icons/${ic}.svg`} alt="" loading="lazy" width="18" height="18" onerror="this.remove()" />}<span class="ltr">{label}</span></span></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

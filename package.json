@@ -1,0 +1,19 @@
+{
+  "name": "merna",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portfolio of Mirna (Merna) Samir Mosaad (ميرنا سمير مسعد), Senior Front-End Developer (React, Next.js, TypeScript, React Native). Built with Astro.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^5.18.2"
+  },
+  "devDependencies": {
+    "node-html-parser": "^9.0.4"
+  }
+}

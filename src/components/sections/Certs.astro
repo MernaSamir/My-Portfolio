@@ -1,0 +1,13 @@
+---
+import { CERTS } from '../../data/profile';
+const lang = Astro.currentLocale === 'ar' ? 'ar' : 'en';
+const L = (o: Record<string, string>) => o[lang];
+---
+<section class="sec" id="certs" aria-labelledby="certT">
+  <div class="wrap">
+    <div class="sec-title reveal"><span class="kicker">{L(CERTS.k)}</span><h2 id="certT">{L(CERTS.t)}</h2></div>
+    <div class="oss">
+      {CERTS.items.map(c => <div class="card issue spot reveal"><span class="lib">{c.e}</span><div><h3>{L(c.t)}</h3><p>{L(c.s)}</p></div></div>)}
+    </div>
+  </div>
+</section>

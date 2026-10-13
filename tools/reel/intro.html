@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mirna Samir Mosaad · Intro reel</title>
+<!-- 1280×720, 40 s. Rendered frame-by-frame by render.mjs: every CSS animation is paused and scrubbed to t.
+     Scenes: 0 hello · 5 role · 10 career timeline · 19 products · 26 stack · 31 principles · 35.5 CTA.
+     Company marks are styled text badges, not real logos. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500;700&family=JetBrains+Mono:wght@500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#5a2418;--navy2:#b8432c;--sky:#e3a6d2;--brass:#f4a582;--brass2:#ffc49b;--ink:#fbefe8;--ink2:#d6bfb4;--bg:#0e0806}
+html,body{width:1280px;height:720px;overflow:hidden;background:var(--bg)}
+body{font-family:Pretendard,system-ui,sans-serif;color:var(--ink);position:relative}
+.ar{font-family:"IBM Plex Sans Arabic",sans-serif;direction:rtl}
+.mono{font-family:"JetBrains Mono",monospace}
+.serif{font-family:Fraunces,Georgia,serif}
+
+/* background */
+.bg{position:absolute;inset:0;overflow:hidden}
+.bg i{position:absolute;border-radius:50%;filter:blur(100px)}
+.bg i:nth-child(1){width:700px;height:700px;background:#6b2516;left:-200px;top:-260px;opacity:.8;animation:drift 15s ease-in-out infinite}
+.bg i:nth-child(2){width:520px;height:520px;background:#4a1f40;right:-200px;top:-220px;opacity:.55;animation:drift 18s ease-in-out -5s infinite}
+.bg i:nth-child(3){width:460px;height:460px;background:#5a3318;left:40%;top:45%;opacity:.35;animation:drift 17s ease-in-out -9s infinite}
+@keyframes drift{50%{transform:translate(70px,40px) scale(1.1)}}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(240,200,180,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(240,200,180,.06) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 80%)}
+.bar{position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,var(--navy2),var(--brass2));transform-origin:0 50%;animation:prog 40s linear both}
+@keyframes prog{from{transform:scaleX(0)}}
+.brand{position:absolute;left:44px;top:32px;display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px;z-index:5;animation:fade 1s .3s both}
+.brand b{color:var(--brass2)}
+.brand .lg{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--navy2),var(--brass));color:#fff;display:grid;place-items:center;font-size:14px;letter-spacing:.02em}
+.url{position:absolute;right:44px;top:40px;font:500 15px "JetBrains Mono";color:var(--ink2);z-index:5;animation:fade 1s .3s both}
+
+/* scenes */
+.scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;animation:sIn .7s cubic-bezier(.2,.8,.2,1) var(--s) both,sOut .6s ease-in calc(var(--e) - .6s) forwards}
+@keyframes sIn{from{opacity:0;transform:scale(1.04);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+@keyframes sOut{to{opacity:0;transform:scale(.97);filter:blur(8px)}}
+.up{animation:up .8s cubic-bezier(.2,.8,.2,1) calc(var(--s) + var(--d,0s)) both}
+@keyframes up{from{opacity:0;transform:translateY(30px)}}
+.pop{animation:pop .7s cubic-bezier(.2,1.4,.4,1) calc(var(--s) + var(--d,0s)) both}
+@keyframes pop{from{opacity:0;transform:scale(.5)}}
+@keyframes fade{from{opacity:0}}
+.k{font:700 16px "JetBrains Mono";letter-spacing:.22em;color:var(--brass2);text-transform:uppercase}
+.gold{color:var(--brass2)}
+.rule{width:90px;height:3px;background:linear-gradient(90deg,var(--brass),var(--brass2));border-radius:3px;transform-origin:0 50%;animation:grow .8s cubic-bezier(.2,.8,.2,1) calc(var(--s) + var(--d,0s)) both}
+@keyframes grow{from{transform:scaleX(0)}}
+
+/* 1 · hello */
+.s1{--s:0s;--e:5s}
+.s1 .wrap{width:1280px;height:720px;position:relative}
+.s1 .txt{position:absolute;left:96px;top:210px;width:640px}
+.s1 h1{font-size:96px;line-height:.98;letter-spacing:-.04em;font-weight:800;margin:20px 0 18px}
+.s1 h1 span{color:var(--brass2)}
+.s1 .ar{font-size:44px;font-weight:700;color:#f6dccd;text-align:left;direction:rtl;unicode-bidi:isolate;display:block}
+.s1 .sub{margin-top:26px;font-size:22px;color:var(--ink2)}
+.halo{position:absolute;right:60px;bottom:-260px;width:620px;height:520px;border-radius:50%;background:radial-gradient(circle at 50% 40%,rgba(184,67,44,.85) 0%,rgba(90,36,24,.5) 45%,rgba(90,36,24,0) 72%);animation:pop 1s cubic-bezier(.2,1.2,.4,1) .1s both}
+.cut{position:absolute;right:50px;bottom:0;width:600px;height:600px;object-fit:contain;object-position:bottom;-webkit-mask-image:linear-gradient(#000 68%,transparent 96%);mask-image:linear-gradient(#000 68%,transparent 96%);animation:rise 1.1s cubic-bezier(.2,.8,.2,1) .3s both;filter:drop-shadow(0 30px 50px rgba(0,0,0,.45))}
+@keyframes rise{from{opacity:0;transform:translateY(60px)}}
+
+/* 2 · role */
+.s2{--s:5s;--e:10s;text-align:center}
+.s2 h2{font-size:66px;line-height:1.06;letter-spacing:-.035em;font-weight:800;margin:20px 0 10px}
+.s2 h2 em{font-style:normal;background:linear-gradient(90deg,var(--sky),var(--brass2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.s2 .now{font-size:24px;color:var(--ink2)}
+.s2 .now b{color:var(--ink)}
+.stats{display:flex;gap:22px;justify-content:center;margin-top:40px}
+.stat{padding:22px 34px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(240,200,180,.2);min-width:240px;position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(var(--brass2),var(--brass))}
+.stat b{display:block;font-size:58px;font-weight:800;letter-spacing:-.03em;color:#fff;font-family:Fraunces,serif}
+.stat span{color:var(--ink2);font-size:18px}
+
+/* 3 · career timeline */
+.s3{--s:10s;--e:19s}
+.s3 .wrap{width:1180px}
+.s3 .hd{display:flex;align-items:flex-end;justify-content:space-between;margin:40px 0 18px}
+.s3 h3{font-size:42px;letter-spacing:-.03em;font-weight:800;line-height:1.05}
+.s3 h3 span{color:var(--brass2)}
+.s3 .hd .ar{font-size:24px;color:#f2d6c6}
+.tl{position:relative}
+.tl .row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative;padding-top:26px}
+.tl .co{min-height:236px}
+.tl .co b{font-size:18.5px}
+.tl .co span{font-size:14px}
+.co .note{margin-top:10px;font-size:13.5px;color:#ffd0b3;line-height:1.35}
+.tl .row+.row{margin-top:20px}
+.tl .row::before{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:rgba(240,200,180,.18)}
+.tl .row::after{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:linear-gradient(90deg,var(--sky),var(--brass2));transform-origin:0 50%;animation:grow 2.9s linear calc(var(--s) + var(--d,0s)) both}
+.co{position:relative;padding:16px 14px 14px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(240,200,180,.18);min-height:162px;animation:pop .6s cubic-bezier(.2,1.4,.4,1) calc(var(--s) + var(--d,0s)) both}
+.co::before{content:"";position:absolute;top:-24px;left:18px;width:12px;height:12px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 4px rgba(240,200,180,.2)}
+.co .yr{font:700 13px "JetBrains Mono";color:var(--brass2);letter-spacing:.04em}
+.co .mk{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font:800 15px Pretendard;color:#fff;margin:10px 0 10px;letter-spacing:-.01em;background:linear-gradient(135deg,var(--c1,#b8432c),var(--c2,#5a2418));border:1px solid rgba(255,255,255,.18)}
+.co b{display:block;font-size:17px;line-height:1.15;letter-spacing:-.01em}
+.co span{display:block;font-size:13px;color:var(--ink2);margin-top:5px;line-height:1.3}
+.co.now{background:linear-gradient(160deg,rgba(226,88,62,.22),rgba(90,36,24,.5));border-color:rgba(255,170,130,.75);box-shadow:0 0 0 1px rgba(255,170,130,.4),0 20px 50px -20px rgba(255,170,130,.5)}
+.co.now::before{background:var(--brass2);box-shadow:0 0 0 5px rgba(255,170,130,.3)}
+.co.now .tag{position:absolute;top:14px;right:12px;font:700 11px "JetBrains Mono";letter-spacing:.12em;background:var(--brass2);color:#3a1208;padding:3px 8px;border-radius:999px}
+.co.fl .tag{position:absolute;top:14px;right:12px;font:700 11px "JetBrains Mono";letter-spacing:.12em;border:1px solid var(--sky);color:var(--sky);padding:2px 7px;border-radius:999px}
+
+/* 4 · products */
+.s4{--s:19s;--e:26s}
+.s4 .wrap{width:1160px}
+.s4 h3{font-size:48px;letter-spacing:-.03em;font-weight:800;text-align:center;margin:14px 0 32px}
+.s4 h3 span{color:var(--brass2)}
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pg .p{padding:20px 20px 18px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(240,200,180,.18);min-height:150px;position:relative}
+.pg .p:nth-child(n+5){transform-origin:center}
+.pg .row2{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:75%;margin:0 auto}
+.pg .p i{font-style:normal;font-size:30px;display:block;margin-bottom:10px}
+.pg .p b{display:block;font-size:22px;letter-spacing:-.015em;line-height:1.15}
+.pg .p span{display:block;font-size:15px;color:var(--ink2);margin-top:6px;line-height:1.35}
+.pg .p em{position:absolute;top:18px;right:18px;font:700 12px "JetBrains Mono";font-style:normal;color:var(--brass2)}
+.pg .p.hot{border-color:rgba(255,170,130,.6);background:linear-gradient(160deg,rgba(226,88,62,.14),rgba(255,255,255,.04))}
+
+/* 5 · expertise */
+.s5{--s:26s;--e:31s;text-align:center}
+.s5 h3{font-size:52px;letter-spacing:-.03em;font-weight:800;margin:14px 0 36px}
+.s5 h3 span{color:var(--brass2)}
+.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:1120px;margin:0 auto}
+.chip{font-size:21px;font-weight:700;padding:11px 20px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(240,200,180,.22)}
+.chip.hot{background:linear-gradient(135deg,var(--navy2),var(--navy));border-color:rgba(255,170,130,.6)}
+.chip.gold{background:linear-gradient(135deg,var(--brass2),var(--brass));border-color:transparent;color:#3a1208}
+
+/* 6 · principles */
+.s6{--s:31s;--e:35.5s}
+.s6 .row{display:flex;gap:22px}
+.pr{width:360px;padding:30px;border-radius:24px;background:rgba(255,255,255,.05);border:1px solid rgba(240,200,180,.2);box-shadow:inset 0 3px 0 var(--brass2)}
+.pr .n{font:700 18px "JetBrains Mono";color:var(--brass2)}
+.pr b{display:block;font-size:27px;margin:10px 0;letter-spacing:-.02em}
+.pr span{font-size:19px;color:#ecd5ca;line-height:1.45}
+.s6 h3{text-align:center;font-size:46px;font-weight:800;letter-spacing:-.03em;margin:14px 0 30px}
+
+/* 7 · cta */
+.s7{--s:35.5s;--e:41s;text-align:center}
+.s7 img{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:50% 30%;border:5px solid var(--brass2);margin:0 auto 22px;display:block;box-shadow:0 0 0 10px rgba(255,170,130,.12)}
+.s7 h2{font-size:60px;letter-spacing:-.035em;font-weight:800;line-height:1.08}
+.s7 h2 span{color:var(--brass2)}
+.s7 .links{display:flex;gap:14px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.s7 .links div{font:700 20px "JetBrains Mono";padding:13px 22px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(240,200,180,.25)}
+.s7 .links div.p{background:linear-gradient(135deg,var(--brass2),var(--brass));border-color:transparent;color:#3a1208}
+.s7 .ar{font-size:30px;color:#f6dccd;margin-top:20px}
+</style>
+<style>
+.s1 .cut{right:84px;bottom:auto;top:140px;width:470px;height:470px;object-fit:cover;border-radius:36px;-webkit-mask-image:none;mask-image:none;border:2px solid rgba(255,196,155,.55);box-shadow:0 0 0 12px rgba(244,165,130,.08),0 40px 80px -30px rgba(0,0,0,.7)}
+.s1 .halo{right:40px;bottom:-200px}
+.s1 h1{font-size:92px}
+.tl .co{min-height:226px}
+</style>
+</head>
+<body>
+<div class="bg"><i></i><i></i><i></i></div>
+<div class="grid-bg"></div>
+<div class="brand"><span class="lg">MM</span><span>Mirna<b>.</b></span></div>
+<div class="url">oriebalzyuot96.github.io/merna</div>
+
+<!-- 1 · hello -->
+<section class="scene s1"><div class="wrap">
+  <div class="halo"></div>
+  <img class="cut" src="../../public/assets/merna.jpg" alt="">
+  <div class="txt">
+    <div class="k up" style="--d:.5s">Cairo, Egypt · Open to new opportunities</div>
+    <h1 class="up" style="--d:.7s">Mirna<br><span>Samir Mosaad</span></h1>
+    <div class="ar up" style="--d:1.1s">ميرنا سمير مسعد</div>
+    <div class="rule" style="--d:1.4s;margin-top:26px"></div>
+    <div class="sub up" style="--d:1.5s">React.js · Next.js · TypeScript · React Native</div>
+  </div>
+</div></section>
+
+<!-- 2 · role -->
+<section class="scene s2"><div>
+  <div class="k up" style="--d:.2s">Clean UI · scalable front-end architecture</div>
+  <h2 class="up" style="--d:.4s">Senior Front-End Developer<br><em>web &amp; mobile apps</em></h2>
+  <div class="now up" style="--d:.8s">Most recently at <b>PTway</b>, leading the front end of <b>Taawoni</b> and a <b>Saudi Ministry of Industry</b> system</div>
+  <div class="stats">
+    <div class="stat pop" style="--d:1.2s"><b>6+</b><span>years with React &amp; Next.js</span></div>
+    <div class="stat pop" style="--d:1.45s"><b>2018</b><span>shipping production code since</span></div>
+    <div class="stat pop" style="--d:1.7s"><b>4 + 4</b><span>companies + freelance clients</span></div>
+  </div>
+</div></section>
+
+<!-- 3 · career timeline -->
+<section class="scene s3"><div class="wrap">
+  <div class="hd">
+    <div><div class="k up" style="--d:.1s">The journey</div><h3 class="up" style="--d:.2s">From <span>POS systems</span> to a <span>Saudi ministry platform</span></h3></div>
+    <div class="ar up" style="--d:.4s">خمس محطات منذ 2018</div>
+  </div>
+  <div class="tl">
+    <div class="row" style="--d:.6s">
+      <div class="co" style="--d:.8s;--c1:#3f6f8a;--c2:#1f3f52"><span class="yr">2018 – 2023</span><div class="mk">B&amp;F</div><b>Back &amp; Front for Smart Systems</b><span>Full-Stack Developer<br>On-site</span><div class="note">POS, back office, real-time dashboards, React Native</div></div>
+      <div class="co fl" style="--d:1.6s;--c1:#6a5f58;--c2:#3a332f"><span class="tag">FREE</span><span class="yr">2020 – 2023</span><div class="mk">FL</div><b>Freelance clients</b><span>Front-End Developer<br>Part-time</span><div class="note">Fekra Egypt, Smart Business, High Bee, DEXI</div></div>
+      <div class="co" style="--d:2.4s;--c1:#2f7a62;--c2:#1a4a3b"><span class="yr">2022</span><div class="mk">RW</div><b>Rowaad</b><span>Front-End Developer<br>Remote</span><div class="note">E-commerce · React, Formik, Material UI</div></div>
+      <div class="co" style="--d:3.2s;--c1:#7a4f9a;--c2:#45295a"><span class="yr">2023</span><div class="mk">ED</div><b>Eden Technology Solutions</b><span>Senior Front-End Developer<br>Cairo · hybrid</span><div class="note">Ordering &amp; travel booking · Next.js, TS</div></div>
+      <div class="co now" style="--d:4s;--c1:#f4a582;--c2:#b8432c"><span class="tag">LATEST</span><span class="yr">2023 – 2026</span><div class="mk">PT</div><b>PTway</b><span>Senior Front-End Developer<br>Saudi Arabia · remote</span><div class="note">Taawoni · Ministry of Industry · Next.js</div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 4 · products -->
+<section class="scene s4"><div class="wrap">
+  <div class="k up" style="--d:.1s;text-align:center">Products &amp; projects</div>
+  <h3 class="up" style="--d:.2s">Things I've <span>built and led</span></h3>
+  <div class="pg">
+    <div class="p hot pop" style="--d:.6s"><em>KSA</em><i>🎓</i><b>Taawoni</b><span>Training-opportunity platform<br>PTway · Next.js · i18next</span></div>
+    <div class="p pop" style="--d:.85s"><em>GOV</em><i>🏛️</i><b>Ministry of Industry system</b><span>Saudi Arabia · PTway<br>front-end lead</span></div>
+    <div class="p pop" style="--d:1.1s"><em>2023</em><i>🗂️</i><b>Office ordering</b><span>Eden · Next.js<br>TypeScript</span></div>
+    <div class="p pop" style="--d:1.35s"><em>2023</em><i>✈️</i><b>Travel reservations</b><span>Eden · Next.js<br>TypeScript</span></div>
+    <div class="row2">
+      <div class="p pop" style="--d:1.6s"><em>POS</em><i>🧾</i><b>POS &amp; live dashboards</b><span>React · Django · PostgreSQL</span></div>
+      <div class="p pop" style="--d:1.85s"><em>2022</em><i>🛒</i><b>E-commerce apps</b><span>React · Formik · Material UI</span></div>
+      <div class="p pop" style="--d:2.1s"><em>APP</em><i>📱</i><b>Pronto mobile app</b><span>React Native · Expo</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 5 · stack -->
+<section class="scene s5"><div>
+  <div class="k up" style="--d:.1s">The stack</div>
+  <h3 class="up" style="--d:.2s">React depth, <span>mobile reach</span></h3>
+  <div class="chips">
+    <span class="chip gold pop" style="--d:.5s">React.js</span><span class="chip gold pop" style="--d:.58s">Next.js</span><span class="chip gold pop" style="--d:.66s">TypeScript</span><span class="chip hot pop" style="--d:.74s">React Native · Expo</span><span class="chip pop" style="--d:.82s">JavaScript ES6+</span><span class="chip pop" style="--d:.9s">HTML5 · CSS3</span><span class="chip pop" style="--d:.98s">Sass · Less</span>
+    <span class="chip pop" style="--d:1.06s">Tailwind CSS</span><span class="chip pop" style="--d:1.14s">Material UI</span><span class="chip pop" style="--d:1.22s">Styled Components</span><span class="chip hot pop" style="--d:1.3s">Redux Toolkit · Zustand</span><span class="chip pop" style="--d:1.38s">Context API · Hooks</span>
+    <span class="chip pop" style="--d:1.46s">React Hook Form · Formik</span><span class="chip hot pop" style="--d:1.54s">i18next</span><span class="chip pop" style="--d:1.62s">Framer Motion</span><span class="chip pop" style="--d:1.7s">Chart.js · Plotly</span><span class="chip pop" style="--d:1.78s">Axios · Lodash</span>
+    <span class="chip pop" style="--d:1.86s">Node.js · Django · GraphQL</span><span class="chip pop" style="--d:1.94s">PostgreSQL · SQL Server</span><span class="chip pop" style="--d:2.02s">Git · REST · Agile</span>
+  </div>
+</div></section>
+
+<!-- 6 · principles -->
+<section class="scene s6"><div>
+  <div class="k up" style="--d:.1s;text-align:center">How I work</div>
+  <h3 class="up" style="--d:.2s">Three principles</h3>
+  <div class="row">
+    <div class="pr pop" style="--d:.4s"><span class="n">01</span><b>Clean, reusable UI</b><span>Typed components, custom hooks and predictable state that teams can build on.</span></div>
+    <div class="pr pop" style="--d:.7s"><span class="n">02</span><b>Fast for every user</b><span>Responsive layouts, i18next localization, code-splitting and caching.</span></div>
+    <div class="pr pop" style="--d:1s"><span class="n">03</span><b>One team, one product</b><span>Close work with back-end engineers, in Agile, for a consistent UX.</span></div>
+  </div>
+</div></section>
+
+<!-- 7 · cta -->
+<section class="scene s7"><div>
+  <img class="pop" style="--d:.1s" src="../../public/assets/merna-face.jpg" alt="">
+  <h2 class="up" style="--d:.4s">Let's build something<br>people <span>love to use</span></h2>
+  <div class="links">
+    <div class="p pop" style="--d:.9s">oriebalzyuot96.github.io/merna</div>
+    <div class="pop" style="--d:1.1s">in/mirna-samir-mosaad</div>
+    <div class="pop" style="--d:1.3s">mernasamir66@gmail.com</div>
+  </div>
+  <div class="ar up" style="--d:1.6s">لنبنِ معًا ما يحب الناس استخدامه</div>
+</div></section>
+
+<div class="bar"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+---
+import { CONTACT, PERSON } from '../../data/profile';
+const lang = Astro.currentLocale === 'ar' ? 'ar' : 'en';
+const L = (o: Record<string, string>) => o[lang];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<section class="sec" id="contact" aria-labelledby="contactT">
+  <div class="wrap">
+    <div class="card contact reveal">
+      <div class="avatars"><img src={`${base}assets/merna-face.jpg`} alt="" width="96" height="96"></div>
+      <h2 id="contactT">{L(CONTACT.t)}</h2>
+      <p>{L(CONTACT.p)}</p>
+      <div class="c-grid c-grid-3">
+        <div class="c-card"><small>{lang === 'ar' ? 'البريد الإلكتروني' : 'Email'}</small><a class="ltr" href={`mailto:${PERSON.email}`}><span>{PERSON.email}</span></a><button class="copy" data-copy={PERSON.email}>{L(CONTACT.copy)}</button></div>
+        <div class="c-card"><small>{lang === 'ar' ? 'الجوال' : 'Mobile'}</small><a class="ltr" href={`tel:${PERSON.tel}`}><span>{PERSON.phone}</span></a><button class="copy" data-copy={PERSON.tel}>{L(CONTACT.copy)}</button></div>
+        <a class="c-card" href={PERSON.linkedin} target="_blank" rel="noopener"><small>LinkedIn</small><span class="ltr">in/mirna-samir-mosaad ↗</span></a>
+      </div>
+      <div class="cta" style="justify-content:center;margin-top:22px"><a class="btn primary" href={`${base}Merna-Mosaad-CV.pdf`} target="_blank" rel="noopener">⬇ <span>{L(CONTACT.cv)}</span></a><a class="btn" href={`mailto:${PERSON.email}`}>✉️ <span>{lang === 'ar' ? 'راسلني' : 'Email me'}</span></a></div>
+      <div class="avail">{CONTACT.avail.map(a => <span>{L(a)}</span>)}</div>
+    </div>
+  </div>
+</section>

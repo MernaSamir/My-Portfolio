@@ -1,0 +1,64 @@
+/* Mirna Samir Mosaad · "coral & warm sand" theme (overrides the shared tokens) + layout for this site's tiles */
+:root{
+  --bg:#fbf6f1; --bg-2:#f5ece3; --surface:#ffffff; --surface-2:#fdf9f5; --glass:rgb(255 255 255 / .76);
+  --ink:#24140f; --ink-2:#55413a; --ink-3:#7d6860; --line:#eddfd4; --line-2:#e0cdbf;
+  --accent:#b8432c; --accent-ink:#ffffff; --accent-2:#f6c7a8; --accent-3:#6d2e5c;
+  --soft:#fbe5d8; --soft-2:#fdf3ec; --pink:#fbe0dc; --mint:#f3e6cf; --butter:#f8ecc9; --sky:#efe0ec;
+  --shadow:0 18px 40px -24px rgb(120 50 30 / .34); --shadow-lg:0 34px 80px -34px rgb(120 50 30 / .48);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#120c0a; --bg-2:#17100d; --surface:#1e1512; --surface-2:#251a16; --glass:rgb(30 21 18 / .76);
+  --ink:#f7ece6; --ink-2:#d4c1b8; --ink-3:#a08c83; --line:#33251f; --line-2:#433129;
+  --accent:#ff9472; --accent-ink:#2a0d05; --accent-2:#8f3420; --accent-3:#e3a6d2; --soft:#2d1b15; --soft-2:#1a120f;
+  --shadow:0 18px 40px -24px rgb(0 0 0 / .7); --shadow-lg:0 34px 80px -34px rgb(0 0 0 / .85);
+}}
+:root[data-theme="dark"]{
+  --bg:#120c0a; --bg-2:#17100d; --surface:#1e1512; --surface-2:#251a16; --glass:rgb(30 21 18 / .76);
+  --ink:#f7ece6; --ink-2:#d4c1b8; --ink-3:#a08c83; --line:#33251f; --line-2:#433129;
+  --accent:#ff9472; --accent-ink:#2a0d05; --accent-2:#8f3420; --accent-3:#e3a6d2; --soft:#2d1b15; --soft-2:#1a120f;
+  --shadow:0 18px 40px -24px rgb(0 0 0 / .7); --shadow-lg:0 34px 80px -34px rgb(0 0 0 / .85);
+}
+.c-grid.c-grid-2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:720px;margin-inline:auto}
+@media (max-width:620px){.c-grid.c-grid-2{grid-template-columns:1fr}}
+/* bento for this site: no video tile, a certificate tile instead */
+.bento.bento-p{grid-template-areas:
+  "photo years now   now"
+  "photo cert  cert  clock"
+  "photo code  code  a11y"
+  "stack stack stack stack"}
+.bento-p>.t-cert{grid-area:cert;justify-content:center;gap:6px}
+.bento-p>.t-photo{grid-area:photo}.bento-p>.t-years{grid-area:years}.bento-p>.t-now{grid-area:now}
+.bento-p>.t-clock{grid-area:clock}.bento-p>.t-a11y{grid-area:a11y}.bento-p>.t-code{grid-area:code}.bento-p>.t-stack{grid-area:stack}
+.t-cert .cert-b{font-size:1.15rem;line-height:1.3}
+.t-cert span:last-child{color:var(--ink-2);font-size:.9rem}
+@media (max-width:1020px){.bento.bento-p{grid-template-areas:"photo years" "photo clock" "now now" "cert cert" "code code" "stack a11y"}}
+@media (max-width:640px){.bento.bento-p{grid-template-areas:"photo photo" "years clock" "now now" "cert cert" "code code" "stack stack" "a11y a11y"}}
+.edu.edu-5{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.c-grid.c-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:760px){.c-grid.c-grid-3{grid-template-columns:1fr}}
+.ft-cols.ft-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sk li{justify-content:flex-start}
+.splash-logo span{background:linear-gradient(135deg,#b8432c,#f4a582)}
+.splash-logo span+span{background:linear-gradient(135deg,#6d2e5c,#c98bb9)}
+/* hero pill: keep face + text on one row (wraps cleanly on phones) */
+.hero .hello.stagger{display:inline-flex;flex-wrap:wrap;justify-content:center;row-gap:4px;max-width:100%}
+.t-photo img{object-position:50% 30%}
+/* generic project mock: let it size to its rows and keep the "Illustration" note clear */
+.proj .mock{aspect-ratio:auto;padding:14px 14px 40px;gap:9px;align-content:start}
+.proj .mock .row{display:flex;gap:9px}
+.proj .mock .row>.box{flex:1}
+/* coral / sand accents */
+.rot::after{background:#f4a582;opacity:.45}
+.sec-title h2::after{background:linear-gradient(90deg,var(--accent),#f4a582)}
+#introVideo::cue{font-size:.8em;background:rgb(0 0 0 / .6)}
+/* contact: four cards */
+.c-grid.c-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.c-grid.c-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.c-grid.c-grid-4{grid-template-columns:1fr}}
+/* skills: every CV skill as wrapping chips */
+.sk ul{display:flex;flex-wrap:wrap;gap:8px}
+.sk li{padding:7px 11px;font-size:.86rem}
+.sk h3{margin-bottom:14px}
+/* certificates */
+#certs .issue h3{font-size:1rem}
+.edu.edu-5{max-width:420px}

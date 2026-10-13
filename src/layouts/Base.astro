@@ -1,0 +1,80 @@
+---
+import { langOf, runtimeDict } from '../i18n';
+import { META, PERSON, siteCfg } from '../data/profile';
+import Chrome from '../components/sections/Chrome.astro';
+import Header from '../components/sections/Header.astro';
+import Overlays from '../components/sections/Overlays.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const lang = langOf(Astro.currentLocale);
+const L = (o: Record<string, string>) => o[lang];
+const SITE = 'https://oriebalzyuot96.github.io';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const enUrl = SITE + base, arUrl = SITE + base + 'ar/';
+const canonical = lang === 'ar' ? arUrl : enUrl;
+const title = L(META.title), description = L(META.desc);
+const ogImage = `${SITE}${base}assets/merna.jpg`;
+const graph = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'Person', '@id': enUrl + '#merna', name: 'Mirna Samir Mosaad', alternateName: ['Merna Mosaad', 'Merna Samir Mosaad', 'Mirna Mosaad', 'ميرنا سمير مسعد', 'ميرنا مسعد'], jobTitle: 'Senior Front-End Developer',
+    description: 'Senior Front-End Developer with 6+ years building web and mobile apps in React.js, Next.js, TypeScript and React Native: a training-opportunity platform and a Saudi Ministry of Industry system at PTway, booking and ordering platforms, e-commerce, POS and real-time dashboards.',
+    image: ogImage, url: enUrl, email: 'mailto:' + PERSON.email, telephone: PERSON.tel,
+    address: { '@type': 'PostalAddress', addressLocality: 'Cairo', addressCountry: 'EG' },
+    alumniOf: [{ '@type': 'CollegeOrUniversity', name: 'Ain Shams University' }],
+    knowsAbout: ['React.js', 'Next.js', 'TypeScript', 'JavaScript', 'React Native', 'Expo', 'HTML5', 'CSS3', 'Sass', 'Tailwind CSS', 'Material UI', 'Redux Toolkit', 'Zustand', 'i18next', 'Framer Motion', 'React Hook Form', 'Formik', 'Chart.js', 'Plotly', 'Node.js', 'Django', 'GraphQL', 'PostgreSQL', 'Responsive design', 'Agile'],
+    sameAs: [PERSON.linkedin] },
+  { '@type': 'ProfilePage', url: canonical, name: title, inLanguage: lang, mainEntity: { '@id': enUrl + '#merna' } },
+  { '@type': 'VideoObject', '@id': enUrl + '#intro', name: lang === 'ar' ? 'ميرنا سمير مسعد: من أنظمة نقاط البيع إلى منصة وزارة سعودية' : 'Mirna Samir Mosaad: from POS systems to a Saudi ministry platform',
+    description: lang === 'ar' ? 'فيديو قصير مدته 40 ثانية عن الشركات والمنتجات والتقنيات خلف عمل ميرنا.' : 'A 40-second reel of the companies, products and stack behind Mirna’s work.',
+    thumbnailUrl: SITE + base + 'assets/merna-intro-poster.jpg', contentUrl: SITE + base + 'assets/merna-intro.mp4',
+    uploadDate: '2026-10-12', duration: 'PT40S', inLanguage: ['en', 'ar'], creator: { '@id': enUrl + '#merna' } },
+] };
+const cfg = siteCfg(base);
+const runtime = { ...runtimeDict(Astro.currentLocale), 'toast.copied': lang === 'ar' ? 'تم النسخ ✓' : 'Copied ✓' };
+---
+<!doctype html>
+<html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} class="no-js" data-base={base} data-cv={`${base}Merna-Mosaad-CV.pdf`}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="author" content="Mirna Samir Mosaad">
+<link rel="canonical" href={canonical}>
+<link rel="alternate" hreflang="en" href={enUrl}>
+<link rel="alternate" hreflang="ar" href={arUrl}>
+<link rel="alternate" hreflang="x-default" href={enUrl}>
+<meta property="og:type" content="profile">
+<meta property="og:url" content={canonical}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={ogImage}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#b8432c">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%23b8432c'/><stop offset='1' stop-color='%23f4a582'/></linearGradient></defs><rect width='64' height='64' rx='18' fill='url(%23g)'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='800' font-size='26' fill='white'>MM</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=Gaegu:wght@700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script is:inline>
+(function(){var r=document.documentElement;r.classList.remove('no-js');try{var p=JSON.parse(localStorage.getItem('mm2-prefs')||'{}');
+if(p.theme&&p.theme!=='system')r.setAttribute('data-theme',p.theme);
+['accent','font','contrast','motion'].forEach(function(k){var v=p[k];if(v&&v!=='lavender'&&v!=='m'&&v!=='none'&&v!=='system')r.setAttribute('data-'+k,v)});
+['readable','links','spacing','cursor'].forEach(function(k){if(p[k])r.setAttribute('data-'+k,'on')});}catch(e){}})();
+</script>
+<link rel="stylesheet" href={`${base}styles.css?v=3`}>
+<link rel="stylesheet" href={`${base}motion.css?v=3`}>
+<link rel="stylesheet" href={`${base}theme.css?v=3`}>
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />
+</head>
+<body>
+<Chrome />
+<Header />
+<main id="main"><slot /></main>
+<SiteFooter />
+<Overlays />
+<script is:inline set:html={`window.I18N=${JSON.stringify(runtime)};`} />
+<script is:inline set:html={`window.SITE_CFG=${JSON.stringify(cfg)};`} />
+<script is:inline src={`${base}sound.js?v=3`} defer></script>
+<script is:inline src={`${base}app.js?v=3`} defer></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+---
+import { CAREER } from '../../data/profile';
+const lang = Astro.currentLocale === 'ar' ? 'ar' : 'en';
+const L = (o: Record<string, string>) => o[lang];
+---
+<section class="sec alt" id="career" aria-labelledby="careerT">
+  <div class="wrap">
+    <div class="sec-title reveal"><span class="kicker">{L(CAREER.k)}</span><h2 id="careerT">{L(CAREER.t)}</h2></div>
+    <div class="timeline" id="timeline">
+      <div class="rail" aria-hidden="true"><i></i></div>
+      {CAREER.jobs.map(j => (
+        <div class="job reveal"><span class="dot">{j.dot}</span><div class="card spot">
+          <div class="when"><span>{L(j.when)}</span>{j.current && <span class="pill live"><span class="d"></span><span>{L(CAREER.now)}</span></span>}</div>
+          <h3>{lang === 'ar' && (j as any).coAr ? (j as any).coAr : j.co} <span>· {L(j.role)}</span></h3>
+          <p class="co">{L(j.about)}</p>
+          <ul>{j.b.map(b => <li>{L(b)}</li>)}</ul>
+          <div class="prods">{j.tags.map(tg => <span class="tag">{tg}</span>)}</div>
+        </div></div>
+      ))}
+    </div>
+    <div class="edu edu-5">
+      {CAREER.edu.map(e => <div class="card spot reveal"><b>{L(e.t)}</b><span>{L(e.s)}</span></div>)}
+    </div>
+  </div>
+</section>

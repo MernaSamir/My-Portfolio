@@ -1,0 +1,41 @@
+---
+import { FOOTER, NAV, PERSON } from '../data/profile';
+const lang = Astro.currentLocale === 'ar' ? 'ar' : 'en';
+const L = (o: Record<string, string>) => o[lang];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const home = lang === 'ar' ? base + 'ar/' : base;
+const altHref = lang === 'ar' ? base : base + 'ar/';
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-card">
+      <div class="ft-brand">
+        <img src={`${base}assets/merna-face.jpg`} alt="" width="72" height="72">
+        <div>
+          <b>Mirna Samir Mosaad <span class="ar-text">· ميرنا سمير مسعد</span></b>
+          <p>{L(FOOTER.tag)}</p>
+          <span class="ft-avail"><i></i>{L(FOOTER.avail)}</span>
+        </div>
+        <div class="ft-cta">
+          <a class="btn primary" href={`mailto:${PERSON.email}`}>✉️ {L(FOOTER.email)}</a>
+          <a class="btn" href={`${base}Merna-Mosaad-CV.pdf`} target="_blank" rel="noopener">⬇ {L(FOOTER.cv)}</a>
+        </div>
+      </div>
+      <nav class="ft-cols ft-cols-2" aria-label="Footer">
+        <div><h3>{L(FOOTER.explore)}</h3><ul>
+          <li><a href={`${home}#about`}>{L(NAV.about)}</a></li><li><a href={`${home}#skills`}>{L(NAV.skills)}</a></li>
+          <li><a href={`${home}#projects`}>{L(NAV.projects)}</a></li><li><a href={`${home}#career`}>{L(NAV.career)}</a></li></ul></div>
+        <div><h3>{L(FOOTER.connect)}</h3><ul>
+          <li><a class="ltr" href={`mailto:${PERSON.email}`}>{PERSON.email}</a></li>
+          <li><a class="ltr" href={`tel:${PERSON.tel}`}>{PERSON.phone}</a></li>
+          <li><a href={PERSON.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a></li></ul></div>
+      </nav>
+    </div>
+    <div class="ft-sign" aria-hidden="true">Mirna<span>.</span></div>
+    <div class="ft-bar">
+      <span>© 2026 Mirna Samir Mosaad. {L(FOOTER.rights)}</span>
+      <span class="ft-time">🕒 {L(FOOTER.local)} <b class="ltr" data-clock>--:--</b></span>
+      <a href={altHref} lang={lang === 'ar' ? 'en' : 'ar'}>🌐 {L(FOOTER.other)}</a>
+    </div>
+  </div>
+</footer>

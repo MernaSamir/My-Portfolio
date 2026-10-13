@@ -1,0 +1,19 @@
+---
+import { VIDEO } from '../../data/profile';
+const lang = Astro.currentLocale === 'ar' ? 'ar' : 'en';
+const L = (o: Record<string, string>) => o[lang];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<section class="sec alt" id="intro" aria-labelledby="introT">
+  <div class="wrap">
+    <div class="sec-title reveal"><span class="kicker">{L(VIDEO.k)}</span><h2 id="introT">{L(VIDEO.t)}</h2><p>{L(VIDEO.p)}</p></div>
+    <div class="player card reveal">
+      <video id="introVideo" controls playsinline preload="metadata" poster={`${base}assets/merna-intro-poster.jpg`} width="1280" height="720">
+        <source src={`${base}assets/merna-intro.webm`} type="video/webm">
+        <source src={`${base}assets/merna-intro.mp4`} type="video/mp4">
+        <track kind="captions" src={`${base}assets/merna-intro.en.vtt`} srclang="en" label="English">
+        <track kind="captions" src={`${base}assets/merna-intro.ar.vtt`} srclang="ar" label="العربية">
+      </video>
+    </div>
+  </div>
+</section>

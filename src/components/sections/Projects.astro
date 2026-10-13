@@ -1,0 +1,57 @@
+---
+import { PROJECTS } from '../../data/profile';
+const lang = Astro.currentLocale === 'ar' ? 'ar' : 'en';
+const L = (o: Record<string, string>) => o[lang];
+const host = (u: string) => u.replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+---
+<section class="sec" id="projects" aria-labelledby="projT">
+  <div class="wrap">
+    <div class="sec-title reveal"><span class="kicker">{L(PROJECTS.k)}</span><h2 id="projT">{L(PROJECTS.t)}</h2><p>{L(PROJECTS.p)}</p></div>
+    <div class="filters" role="group" aria-label={lang === 'ar' ? 'تصفية المشاريع' : 'Filter projects'}>
+      {PROJECTS.filters.map((f, i) => <button class="chip" aria-pressed={i === 0 ? 'true' : 'false'} data-f={f.f}>{f.e && <>{f.e} </>}<span>{L(f.t)}</span> <span class="c" data-n={f.f}></span></button>)}
+    </div>
+    <div class="projects">
+      {PROJECTS.items.map(p => (
+        <article class="card proj spot reveal" id={p.id} data-c={p.c}>
+          <div class="media">
+            <div class="frame tilt">
+              <div class="bar"><i></i><i></i><i></i><span>{p.link ? host(p.link) : p.id.replace('p-', '') + ' · app'}</span></div>
+              <div class="mock ltr" aria-hidden="true">
+                {p.mock.flow && (
+                  <div class="row" style="align-items:center;justify-content:center;gap:6px;flex-wrap:wrap">
+                    {p.mock.flow.map((n, i) => <>{i > 0 && <span class="arrow">→</span>}<span class={i < 2 ? 'node on' : 'node'}>{n}</span></>)}
+                  </div>
+                )}
+                {p.mock.stats && (
+                  <div class="row">
+                    {p.mock.stats.map(([label, value, pct]) => <div class="box"><b>{label}</b><span class="num">{value}</span><div class="bar-p"><i style={`width:${pct}%`}></i></div></div>)}
+                  </div>
+                )}
+                {p.mock.list && p.mock.list.map(([label, value], i) => (
+                  <div class={i === 0 ? 'offer best' : 'offer'}><span class="row" style="align-items:center"><span class="bank" style={i === 0 ? 'background:linear-gradient(135deg,#b8432c,#f4a582)' : 'background:linear-gradient(135deg,#6d2e5c,#c98bb9)'}></span><b>{label}</b></span><span class="chip-s">{value}</span></div>
+                ))}
+              </div>
+              <span class="illus-note">{L(PROJECTS.illus)}</span>
+            </div>
+          </div>
+          <div class="p-body">
+            <div class="org"><span>{L(p.org)}</span><span class="pill live"><span class="d"></span><span>{L(p.status)}</span></span></div>
+            <h3>{L(p.title)}</h3>
+            <p>{L(p.p)}</p>
+            <ul class="hl">{p.hl.map(h => <li>{L(h)}</li>)}</ul>
+            <div class="tags">{p.tags.map(tg => <span class="tag">{tg}</span>)}</div>
+            {((p as any).link || (p as any).case) && <div class="p-actions">
+              {(p as any).case && <button class="btn primary" data-case={p.id}>{L(PROJECTS.caseBtn)}</button>}
+              {(p as any).link && <a class={(p as any).case ? 'btn' : 'btn primary'} href={(p as any).link} target="_blank" rel="noopener">{L(PROJECTS.more)}</a>}
+            </div>}
+          </div>
+          {(p as any).case && <div class="case">
+            <section><h4>🎯 <span>{L(PROJECTS.cs.c)}</span></h4><p>{L((p as any).case.c)}</p></section>
+            <section><h4>🛠 <span>{L(PROJECTS.cs.a)}</span></h4><ul>{(p as any).case.a.map((x: any) => <li>{L(x)}</li>)}</ul></section>
+            <section><h4>✅ <span>{L(PROJECTS.cs.r)}</span></h4><p>{L((p as any).case.r)}</p></section>
+          </div>}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

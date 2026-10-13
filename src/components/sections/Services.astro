@@ -1,0 +1,14 @@
+---
+import { SERVICES, PERSON } from '../../data/profile';
+const lang = Astro.currentLocale === 'ar' ? 'ar' : 'en';
+const L = (o: Record<string, string>) => o[lang];
+---
+<section class="sec alt" id="services" aria-labelledby="svcT">
+  <div class="wrap">
+    <div class="sec-title reveal"><span class="kicker">{L(SERVICES.k)}</span><h2 id="svcT">{L(SERVICES.t)}</h2><p>{L(SERVICES.p)}</p></div>
+    <div class="svc-grid">
+      {SERVICES.items.map(s => <article class="card svc spot reveal"><span class="ico">{s.e}</span><h3>{L(s.t)}</h3><p>{L(s.p)}</p></article>)}
+    </div>
+    <div class="cta reveal" style="margin-top:34px"><a class="btn primary" href={`mailto:${PERSON.email}?subject=Project%20enquiry`}>{L(SERVICES.cta)}</a><a class="btn" href={PERSON.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a></div>
+  </div>
+</section>

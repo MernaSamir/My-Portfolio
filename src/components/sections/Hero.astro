@@ -1,0 +1,71 @@
+---
+import { HERO, BENTO, PERSON } from '../../data/profile';
+const lang = Astro.currentLocale === 'ar' ? 'ar' : 'en';
+const L = (o: Record<string, string>) => o[lang];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const words = L(HERO.words).split('|');
+---
+<section class="hero" id="home" aria-labelledby="heroTitle">
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="grid-dots" aria-hidden="true"></div>
+  <canvas class="stars" id="stars" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-head">
+      <span class="hello stagger" style="--i:0"><img src={`${base}assets/merna-face.jpg`} alt="" width="30" height="30"><span>{L(HERO.hello)}</span> · <span class="live">{L(HERO.open)}</span></span>
+      {lang === 'ar'
+        ? <h1 id="heroTitle"><span class="line stagger" style="--i:1">{L(HERO.l1)}</span> <span class="line stagger" style="--i:2">{L(HERO.l2pre)}<span class="rot" id="rot" data-words={L(HERO.words)}><span class="w">{words[0]}</span></span>،</span> <span class="line stagger" style="--i:3">{L(HERO.l3)}</span></h1>
+        : <h1 id="heroTitle"><span class="line stagger" style="--i:1">{L(HERO.l1)}</span> <span class="line stagger" style="--i:2"><span class="rot" id="rot" data-words={L(HERO.words)}><span class="w">{words[0]}</span></span>{L(HERO.l2b)}</span> <span class="line stagger" style="--i:3">{L(HERO.l3)}</span></h1>}
+      <p class="lede stagger" style="--i:4" set:html={L(HERO.lede)} />
+      <div class="cta stagger" style="--i:5">
+        <a class="btn primary magnet" href="#projects"><span>{L(HERO.cta1)}</span> <svg class="flip-rtl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn magnet" href={`${base}Merna-Mosaad-CV.pdf`} target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg><span>{L(HERO.cta2)}</span></a>
+        <a class="btn" href={`mailto:${PERSON.email}`}>✉️ <span>{L(HERO.cta3)}</span></a>
+      </div>
+    </div>
+
+    <div class="bento bento-p">
+      <figure class="card tile t-photo spot pop" style="--i:0">
+        <img src={`${base}assets/merna.jpg`} alt={L(PERSON.name)} width="800" height="800">
+        <span class="hand">{L(BENTO.hand)}</span>
+        <figcaption class="cap"><span><b>{L(PERSON.name)}</b><span>{L(PERSON.role)}</span></span><span class="pill live"><span class="d"></span><span>{L(BENTO.avail)}</span></span></figcaption>
+      </figure>
+      <div class="card tile t-years pop" style="--i:1">
+        <span class="k">{L(BENTO.exp)}</span>
+        <span class="big ltr">2018</span>
+        <p>{L(BENTO.years)}</p>
+        <svg viewBox="0 0 200 56" preserveAspectRatio="none" aria-hidden="true"><path class="spark" d="M0 50 L25 46 L50 40 L75 42 L100 30 L125 26 L150 18 L175 12 L200 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="card tile t-now spot pop" style="--i:2">
+        <span class="k">{L(BENTO.nowk)}</span>
+        <h3>{L(BENTO.now)}</h3>
+        <ul>{BENTO.chips.map(c => <li><i>✦</i><span>{L(c)}</span></li>)}</ul>
+      </div>
+      <div class="card tile t-cert spot pop" style="--i:3">
+        <span class="k">{L(BENTO.certk)}</span>
+        <b class="cert-b">🎓 {L(BENTO.cert)}</b>
+        <span>{L(BENTO.certs)}</span>
+      </div>
+      <div class="card tile t-clock pop" style="--i:4">
+        <span class="k">{L(BENTO.clock)}</span>
+        <span class="time ltr" id="clock">--:--</span>
+        <span>{L(BENTO.tz)}</span>
+      </div>
+      <div class="card tile t-code pop" style="--i:5" role="img" aria-label="React form component code sample">
+        <div class="bar"><i></i><i></i><i></i><span>ApplyForm.tsx</span></div>
+<pre id="typed" aria-hidden="true"></pre>
+      </div>
+      <div class="card tile t-stack pop" style="--i:6">
+        <span class="k">{L(BENTO.stack)}</span>
+        <div class="mini-marq ltr" aria-hidden="true"><span>React</span><span>Next.js</span><span>TypeScript</span><span>React Native</span><span>Tailwind CSS</span><span>Material UI</span><span>React</span><span>Next.js</span><span>TypeScript</span><span>React Native</span><span>Tailwind CSS</span><span>Material UI</span></div>
+        <div class="mini-marq rev ltr" aria-hidden="true"><span>Redux Toolkit</span><span>Zustand</span><span>i18next</span><span>Framer Motion</span><span>Django</span><span>PostgreSQL</span><span>Redux Toolkit</span><span>Zustand</span><span>i18next</span><span>Framer Motion</span><span>Django</span><span>PostgreSQL</span></div>
+        <p class="sr">React, Next.js, TypeScript, React Native, Tailwind CSS, Material UI, Redux Toolkit, Zustand, i18next, Framer Motion, Django, PostgreSQL.</p>
+      </div>
+      <button class="card tile t-a11y pop" style="--i:7" data-open-settings>
+        <span class="k">{L(BENTO.a11yk)}</span>
+        <b>{L(BENTO.a11y)}</b>
+        <span>{L(BENTO.a11ySub)}</span>
+        <span class="go">{L(BENTO.a11yGo)}</span>
+      </button>
+    </div>
+  </div>
+</section>
