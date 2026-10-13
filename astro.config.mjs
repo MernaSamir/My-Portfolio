@@ -2,10 +2,10 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Project site: https://oriebalzyuot96.github.io/merna/
+// Project site: https://mernasamir.github.io/My-Portfolio/
 export default defineConfig({
-  site: 'https://oriebalzyuot96.github.io',
-  base: '/merna',
+  site: 'https://mernasamir.github.io',
+  base: '/My-Portfolio',
   trailingSlash: 'always',
   devToolbar: { enabled: false },
   build: { format: 'directory' },

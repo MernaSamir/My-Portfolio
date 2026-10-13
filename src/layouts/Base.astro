@@ -8,7 +8,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
 const lang = langOf(Astro.currentLocale);
 const L = (o: Record<string, string>) => o[lang];
-const SITE = 'https://oriebalzyuot96.github.io';
+const SITE = 'https://mernasamir.github.io';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const enUrl = SITE + base, arUrl = SITE + base + 'ar/';
 const canonical = lang === 'ar' ? arUrl : enUrl;
